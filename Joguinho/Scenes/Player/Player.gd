@@ -16,6 +16,9 @@ var isSliding = false
 
 onready var worldNode = get_tree().get_root().get_node("World")
 
+func _ready():
+    $Camera2D.current = true
+
 func _physics_process(delta):
     
     if !is_on_floor():
@@ -68,8 +71,10 @@ func _physics_process(delta):
     if Input.is_action_just_released("ui_slide") && is_on_floor() && velocity.x != 0:
         $Sprite/AnimationPlayer.play("slide")
         isSliding = true
+        $Camera2D.slideZoomIn()
         yield(get_node("Sprite/AnimationPlayer"), "animation_finished")
         isSliding = false
+        $Camera2D.resetZoom()
                 
 
     # Incresce or reduce the horizontal velocity based on the input
