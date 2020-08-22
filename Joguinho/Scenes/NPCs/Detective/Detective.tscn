@@ -59,6 +59,7 @@ animations = [ {
 [node name="Detective" type="Node"]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 1 )
 animation = "reload"
 frame = 6
