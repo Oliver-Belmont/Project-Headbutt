@@ -19,4 +19,6 @@ func set_direction(direction):
         velocity.x = HORIZONTAL_SPEED
 
 func _on_Bullet_body_entered(body):
+    if (body.is_in_group("enemy")):
+        body.takeDamage()
     queue_free()

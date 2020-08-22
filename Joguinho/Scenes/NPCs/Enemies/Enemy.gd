@@ -11,6 +11,7 @@ var velocity = Vector2()
 var direction = 1
 var leftArea
 var rightArea
+var health = 1
 
 func _ready():
     horizontalSpeed = WALK_SPEED
@@ -27,6 +28,11 @@ func _physics_process(delta):
     velocity.x = direction * horizontalSpeed
     # Move the character
     move_and_slide(velocity, Vector2(0, -1))
+
+func takeDamage():
+    health -= 1
+    if health == 0:
+        queue_free()
 
 func switchDirection():
     direction = direction * -1

@@ -190,7 +190,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=11]
-extents = Vector2( 12.831, 22.9195 )
+extents = Vector2( 13, 25 )
 
 [node name="Character" type="KinematicBody2D" groups=[
 "player",
@@ -202,7 +202,6 @@ scale = Vector2( 1.1, 1.1 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 8
-frame = 17
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 anims/crouch = SubResource( 1 )
@@ -217,6 +216,7 @@ anims/run = SubResource( 9 )
 anims/slide = SubResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.21463, 0.643917 )
 shape = SubResource( 11 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
