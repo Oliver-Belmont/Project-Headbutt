@@ -52,7 +52,7 @@ tracks/0/keys = {
 "values": [ 9, 10, 11 ]
 }
 
-[node name="King" type="Node"]
+[node name="King" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )

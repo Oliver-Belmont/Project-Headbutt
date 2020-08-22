@@ -97,7 +97,7 @@ tracks/0/keys = {
 "values": [ 12, 13, 14, 15 ]
 }
 
-[node name="Girl" type="Node"]
+[node name="Girl" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.3, 0.3 )

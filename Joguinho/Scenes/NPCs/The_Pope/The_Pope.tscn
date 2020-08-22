@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/NPCs/The_Pope/the_pope.png" type="Texture" id=1]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "hurt"
 length = 2.5
 tracks/0/type = "value"
@@ -18,8 +18,7 @@ tracks/0/keys = {
 "values": [ 4, 7 ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "speech"
+[sub_resource type="Animation" id=2]
 length = 3.0
 loop = true
 step = 0.3
@@ -36,7 +35,7 @@ tracks/0/keys = {
 "values": [ 0, 4, 8, 0 ]
 }
 
-[node name="The_Pope" type="Node"]
+[node name="The_Pope" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -45,5 +44,5 @@ hframes = 4
 frame = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
-anims/hurt = SubResource( 2 )
-anims/speech = SubResource( 1 )
+anims/hurt = SubResource( 1 )
+anims/speech = SubResource( 2 )
