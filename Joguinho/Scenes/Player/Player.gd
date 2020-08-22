@@ -72,9 +72,13 @@ func _physics_process(delta):
         $Sprite/AnimationPlayer.play("slide")
         isSliding = true
         $Camera2D.slideZoomIn()
+        self.set_collision_layer(2)
+        self.set_collision_mask(2)
         yield(get_node("Sprite/AnimationPlayer"), "animation_finished")
         isSliding = false
         $Camera2D.resetZoom()
+        self.set_collision_layer(1)
+        self.set_collision_mask(1)
                 
 
     # Incresce or reduce the horizontal velocity based on the input

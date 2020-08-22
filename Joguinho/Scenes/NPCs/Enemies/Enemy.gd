@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 const GRAVITY = 4000.0
 const WALK_SPEED = 50.0
-const RUN_SPEED = 400.0
+const RUN_SPEED = 200.0
 const JUMP_FORCE = 1000.0
 
 var horizontalSpeed
@@ -51,11 +51,13 @@ func _on_Right_body_entered(body):
         horizontalSpeed = RUN_SPEED
 
 func _on_Left_body_exited(body):
-    horizontalSpeed = WALK_SPEED
-    $Timer.start()
+    if(body.is_in_group("player")):
+        horizontalSpeed = WALK_SPEED
+        $Timer.start()
 
 
 func _on_Right_body_exited(body):
-    horizontalSpeed = WALK_SPEED
-    $Timer.start()
+    if(body.is_in_group("player")):
+        horizontalSpeed = WALK_SPEED
+        $Timer.start()
 
