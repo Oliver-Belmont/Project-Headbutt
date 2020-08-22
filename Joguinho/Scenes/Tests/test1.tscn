@@ -19,7 +19,8 @@ position = Vector2( 44.4268, 7.93335 )
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 position = Vector2( 330.595, 137.89 )
-mass = 20.0
+mass = 100.0
+gravity_scale = 4.0
 __meta__ = {
 "_edit_group_": true
 }
