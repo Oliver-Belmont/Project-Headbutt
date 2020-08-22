@@ -102,6 +102,7 @@ tracks/0/keys = {
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 1 )
+centered = false
 vframes = 5
 hframes = 8
 frame = 30

@@ -63,3 +63,4 @@ scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 1 )
 animation = "reload"
 frame = 6
+centered = false
