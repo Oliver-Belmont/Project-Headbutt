@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Area2D
 
 const HORIZONTAL_SPEED = 1800.0
 
@@ -13,10 +13,13 @@ func _physics_process(delta):
 
     # The second parameter of "move_and_slide" is the normal pointing up.
     # In the case of a 2D platformer, in Godot, upward is negative y, which translates to -1 as a normal.
-    move_and_slide(velocity, Vector2(0, -1))
+    position += velocity * delta
     
 func set_direction(direction):
     if (direction == "left"):
         velocity.x = -HORIZONTAL_SPEED
     elif (direction == "right"):
         velocity.x = HORIZONTAL_SPEED
+
+func _on_Bullet_body_entered(body):
+    queue_free()
