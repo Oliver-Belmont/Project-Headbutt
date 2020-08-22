@@ -42,14 +42,14 @@ texture = ExtResource( 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource( 1 )
 
+[node name="Enemy2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 238.802, 156.271 )
+
+[node name="Enemy4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 726.337, 474.685 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 634.196, 281.07 )
+
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
 position = Vector2( 304, 476.9 )
-
-[node name="Enemy" parent="Enemy" instance=ExtResource( 5 )]
-position = Vector2( -65.1979, -320.629 )
-
-[node name="Enemy2" parent="Enemy" instance=ExtResource( 5 )]
-position = Vector2( 330.196, -195.83 )
-
-[node name="Enemy3" parent="Enemy" instance=ExtResource( 5 )]
-position = Vector2( 422.337, -2.21524 )
