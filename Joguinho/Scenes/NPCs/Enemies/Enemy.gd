@@ -1,9 +1,14 @@
 extends KinematicBody2D
 
+const BulletResource = preload("res://Scenes/NPCs/Enemies/EnemyBullet.tscn")
+
 const GRAVITY = 4000.0
 const WALK_SPEED = 50.0
 const RUN_SPEED = 200.0
 const JUMP_FORCE = 1000.0
+const GUN_COOLDOWN = 1.0
+
+onready var worldNode = get_tree().get_root().get_node("World")
 
 var horizontalSpeed
 var velocity = Vector2()
@@ -12,6 +17,8 @@ var direction = 1
 var leftArea
 var rightArea
 var health = 1
+var timeToShoot = 0
+var lockedIn = false
 
 func _ready():
     horizontalSpeed = WALK_SPEED
@@ -21,6 +28,13 @@ func _ready():
     rightArea = $Right
     leftArea.set_process(false)
     
+func _process(delta):
+    if lockedIn:
+        if timeToShoot <= 0:
+            shoot(direction)
+    if timeToShoot > 0:
+        timeToShoot -= delta
+
 func _physics_process(delta):    
     if !is_on_floor():
         velocity.y += delta * GRAVITY
@@ -47,6 +61,7 @@ func _on_Left_body_entered(body):
     if(body.is_in_group("player")):
         $Timer.stop()
         direction = -1
+        lockedIn = true
         horizontalSpeed = RUN_SPEED
 
 
@@ -54,16 +69,33 @@ func _on_Right_body_entered(body):
     if(body.is_in_group("player")):
         $Timer.stop()
         direction = 1
+        lockedIn = true
         horizontalSpeed = RUN_SPEED
 
 func _on_Left_body_exited(body):
     if(body.is_in_group("player")):
         horizontalSpeed = WALK_SPEED
+        lockedIn = false
         $Timer.start()
 
 
 func _on_Right_body_exited(body):
     if(body.is_in_group("player")):
         horizontalSpeed = WALK_SPEED
+        lockedIn = false
         $Timer.start()
 
+func shoot(direction):
+    var offset
+    # Instance a new bullet
+    var bullet = BulletResource.instance()
+   
+    # Set bullet direction and starting position 
+    bullet.set_direction(direction)
+    bullet.transform = self.transform
+    offset = Vector2(33*direction, 0)
+    bullet.translate(offset)
+    
+    # Add to world
+    worldNode.add_child(bullet)
+    timeToShoot = GUN_COOLDOWN
