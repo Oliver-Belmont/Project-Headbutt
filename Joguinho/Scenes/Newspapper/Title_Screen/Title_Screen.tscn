@@ -1,3 +1,155 @@
-[gd_scene format=2]
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Scenes/Newspapper/Newspapper_preto_branco_correto.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Newspapper/font/slkscr.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scenes/Newspapper/Buttons/button_pressed.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Newspapper/Buttons/button_focus.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Newspapper/Buttons/button_normal.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Newspapper/Good_ending_images/player_bw_newspapper.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=3]
+size = 55
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 16, 16 )
+margin_right = 1.0
+
+[sub_resource type="DynamicFont" id=10]
+size = 48
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 16, 16 )
+margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 16, 16 )
+margin_right = 1.0
+margin_bottom = 5.0
+
+[sub_resource type="DynamicFont" id=11]
+size = 35
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=12]
+resource_name = "spinning_entrance"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
+}
 
 [node name="Title_Screen" type="Node2D"]
+position = Vector2( 652.98, 366.585 )
+rotation = 6.28319
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -650.679, -355.919 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Label" type="Label" parent="."]
+margin_left = -527.266
+margin_top = -267.943
+margin_right = 565.734
+margin_bottom = -152.943
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Bulletproof democracy:
+The downfall of dumbrella"
+
+[node name="Label2" type="Label" parent="."]
+margin_left = -568.932
+margin_top = -57.6971
+margin_right = -352.932
+margin_bottom = 8.30289
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Created by"
+
+[node name="Label3" type="Label" parent="."]
+margin_left = -573.364
+margin_top = 53.711
+margin_right = -357.364
+margin_bottom = 170.711
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "   Oliver
+     and
+     Tui"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 253.929
+margin_top = 0.727997
+margin_right = 511.929
+margin_bottom = 66.728
+custom_styles/pressed = SubResource( 7 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Exit"
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 246.34
+margin_top = -96.5875
+margin_right = 511.34
+margin_bottom = -28.5875
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+custom_fonts/font = SubResource( 11 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Start Game"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/spinning_entrance = SubResource( 12 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 1425.53, 610.02 )
+scale = Vector2( 9.44786, 7.50115 )
+texture = ExtResource( 6 )
