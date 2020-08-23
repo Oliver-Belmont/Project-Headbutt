@@ -6,15 +6,16 @@ const GRAVITY = 4000.0
 const WALK_SPEED = 500.0
 const JUMP_FORCE = 1000.0
 
-var last_direction = "right"
+onready var worldNode = get_tree().get_root().get_node("World")
+
+# 1 = right, -1 = left
+var last_direction = 1
 var baseHVelocity
 var velocity = Vector2()
 var velocityModulation = 1
 var isFlipped = false
 var isCrouched = false
 var isSliding = false
-
-onready var worldNode = get_tree().get_root().get_node("World")
 
 func _ready():
     $Camera2D.current = true
@@ -32,7 +33,7 @@ func _physics_process(delta):
             if (is_on_floor()):
                 $Sprite/AnimationPlayer.play("run")
             isFlipped = true
-            last_direction = "left"
+            last_direction = -1
         elif Input.is_action_pressed("ui_right"):
             baseHVelocity =  WALK_SPEED
             if (isFlipped):
@@ -40,7 +41,7 @@ func _physics_process(delta):
             if (is_on_floor()):
                 $Sprite/AnimationPlayer.play("run")
             isFlipped = false
-            last_direction = "right"
+            last_direction = 1
         else:
             if (is_on_floor()):
                 $Sprite/AnimationPlayer.play("idle")
@@ -70,11 +71,14 @@ func _physics_process(delta):
     # Slide input
     if Input.is_action_just_released("ui_slide") && is_on_floor() && velocity.x != 0:
         $Sprite/AnimationPlayer.play("slide")
+        # Stop colliding when sliding
         isSliding = true
         $Camera2D.slideZoomIn()
         self.set_collision_layer(2)
         self.set_collision_mask(2)
+        # Wait for the animation to finish
         yield(get_node("Sprite/AnimationPlayer"), "animation_finished")
+        # Restore its behaviour after the slide
         isSliding = false
         $Camera2D.resetZoom()
         self.set_collision_layer(1)
@@ -96,12 +100,11 @@ func shoot(direction):
     # Set bullet direction and starting position 
     bullet.set_direction(direction)
     bullet.transform = self.transform
-    if (direction == "left"):
-        offset = Vector2(-40, 0)
-    elif (direction == "right"):
-        offset = Vector2(40,0)
+    offset = Vector2(40*direction, 0)
     bullet.translate(offset)
     
     # Add to world
     worldNode.add_child(bullet)
     
+func takeDamage():
+    pass

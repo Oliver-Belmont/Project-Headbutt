@@ -16,7 +16,8 @@ func _physics_process(delta):
 func set_direction(direction):
     velocity.x = HORIZONTAL_SPEED * direction
 
-func _on_Bullet_body_entered(body):
-    if (body.is_in_group("enemy")):
-        body.takeDamage()
+func _on_EnemyBullet_body_entered(body):
+    if (body.is_in_group("player")):
+        if !body.isSliding && !body.isCrouched:
+            body.takeDamage()
     queue_free()
