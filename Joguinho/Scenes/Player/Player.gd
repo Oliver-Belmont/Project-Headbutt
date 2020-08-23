@@ -130,4 +130,3 @@ func take_damage(direction):
         $Camera2D.zoom_in_death()
         $Sprite/AnimationPlayer.play("death")
     
-    
