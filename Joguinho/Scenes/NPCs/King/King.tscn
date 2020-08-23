@@ -52,7 +52,7 @@ tracks/0/keys = {
 "values": [ 9, 10, 11 ]
 }
 
-[node name="King" type="Node2D"]
+[node name="King" type="RigidBody2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -64,3 +64,6 @@ frame = 8
 anims/Idle = SubResource( 1 )
 anims/death = SubResource( 2 )
 anims/hurt = SubResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -5.07265, 51.4782, 10.2319, 51.4782, 12.1252, 36.1737, 17.0164, 31.2825, 13.703, 14.558, 15.9119, 7.93126, 10.3897, -3.11326, -0.970406, -3.11326, -8.38601, 8.56238, -5.70377, 14.558, -12.0149, 30.4936, -6.966, 36.1737 )

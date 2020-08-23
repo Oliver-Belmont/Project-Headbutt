@@ -35,14 +35,16 @@ tracks/0/keys = {
 "values": [ 0, 4, 8, 0 ]
 }
 
-[node name="The_Pope" type="Node2D"]
+[node name="The_Pope" type="RigidBody2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 vframes = 4
 hframes = 4
-frame = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 anims/hurt = SubResource( 1 )
 anims/speech = SubResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -5.4519, 27.1708, 6.63464, 27.1708, 11.396, 21.1885, 10.1751, 14.2296, 14.0819, 7.39279, 9.44263, -22.2742, 0.774506, -31.3086, -8.87032, -22.2742, -12.4108, 7.39279, -9.60283, 14.2296, -10.8237, 20.456 )

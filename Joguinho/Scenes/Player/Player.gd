@@ -26,7 +26,7 @@ func _ready():
 
 func _physics_process(delta):
     if (!game_over):
-        handleInput()
+        handle_input()
         # Incresce or reduce the horizontal velocity based on the input
         velocity.x = baseHVelocity * velocityModulation
     elif game_over:
@@ -34,7 +34,7 @@ func _physics_process(delta):
         if (abs(velocity.x) <= 1 && is_on_floor() && !emitted):
             emit_signal("player_death")
             emitted = true
-            $Camera2D.zoomOutDeath()
+            $Camera2D.zoom_out_death()
     
     if !is_on_floor():
         velocity.y += delta * GRAVITY
@@ -42,7 +42,7 @@ func _physics_process(delta):
     # Move the character
     move_and_slide(velocity, Vector2(0, -1))
     
-func handleInput():
+func handle_input():
     if(!isSliding):
         # Horizontal input
         if Input.is_action_pressed("ui_left"):
@@ -91,14 +91,14 @@ func handleInput():
         $Sprite/AnimationPlayer.play("slide")
         # Stop colliding when sliding
         isSliding = true
-        $Camera2D.slideZoomIn()
+        $Camera2D.slide_zoom_in()
         self.set_collision_layer(2)
         self.set_collision_mask(2)
         # Wait for the animation to finish
         yield(get_node("Sprite/AnimationPlayer"), "animation_finished")
         # Restore its behaviour after the slide
         isSliding = false
-        $Camera2D.resetZoom()
+        $Camera2D.reset_zoom()
         self.set_collision_layer(1)
         self.set_collision_mask(1)
                 
@@ -115,7 +115,7 @@ func shoot(direction):
     # Add to world
     worldNode.add_child(bullet)
     
-func takeDamage(direction):
+func take_damage(direction):
     if (!game_over):
         game_over = true
         if direction == -1:
@@ -127,7 +127,7 @@ func takeDamage(direction):
         velocity.x = WALK_SPEED * direction
         velocity.y = -JUMP_FORCE / 2
         Engine.time_scale = 0.2
-        $Camera2D.zoomInDeath()
+        $Camera2D.zoom_in_death()
         $Sprite/AnimationPlayer.play("death")
     
     

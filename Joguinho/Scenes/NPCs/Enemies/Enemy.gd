@@ -19,7 +19,6 @@ var health = 1
 var timeToShoot
 var lockedIn = false
 var worldNode
-var playerNode
 var stop = false
 var animating = false
 var mustReload = false
@@ -27,8 +26,6 @@ var aiming = false
 
 func _ready():
     worldNode = get_tree().get_root().get_node("World")
-    playerNode = worldNode.get_node("Character")
-    playerNode.connect("player_death", self, "stop")
     horizontalSpeed = WALK_SPEED
     timeToShoot = GUN_COOLDOWN
     $Timer.start()
@@ -62,16 +59,16 @@ func _physics_process(delta):
         # Move the character
         move_and_slide(velocity, Vector2(0, -1))
 
-func takeDamage():
+func take_damage():
     health -= 1
     if health == 0:
         queue_free()
 
-func switchDirection():
+func switch_direction():
     direction = direction * -1
 
 func _on_Timer_timeout():
-    switchDirection()
+    switch_direction()
     $Timer.wait_time = randi() % 3 + 3
     $Timer.start()
 

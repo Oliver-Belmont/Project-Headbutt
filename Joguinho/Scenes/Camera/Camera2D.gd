@@ -16,18 +16,18 @@ func _physics_process(delta):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #    pass
-func slideZoomIn():
+func slide_zoom_in():
     zoomSpeed = 5.0
     zoomTarget = Vector2(0.5, 0.5)
     
-func resetZoom():
+func reset_zoom():
     zoomSpeed = 2.0
     zoomTarget = Vector2(1, 1)
     
-func zoomOutDeath():
+func zoom_out_death():
     zoomSpeed = 0.1
     zoomTarget = Vector2(2, 2)
     
-func zoomInDeath():
+func zoom_in_death():
     zoomSpeed = 5.0
     zoomTarget = Vector2(0.3, 0.3)
