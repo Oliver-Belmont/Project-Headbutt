@@ -29,6 +29,7 @@ func _ready():
     horizontalSpeed = WALK_SPEED
     timeToShoot = GUN_COOLDOWN
     $Timer.start()
+    $AnimatedSprite.play("run")
     velocity.y = 0
     leftArea = $Left
     rightArea = $Right
@@ -124,4 +125,5 @@ func shoot(direction):
     $AnimatedSprite.play("reload")
     yield(get_node("AnimatedSprite"), "animation_finished")    
     animating = false
+    $AnimatedSprite.play("run")
     

@@ -18,8 +18,6 @@ extents = Vector2( 90, 20 )
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" parent="." instance=ExtResource( 2 )]
-animation = "New Anim"
-frame = 0
 centered = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
