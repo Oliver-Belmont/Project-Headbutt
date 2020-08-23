@@ -87,7 +87,7 @@ func handle_input():
         shoot(last_direction)
     
     # Slide input
-    if Input.is_action_just_released("ui_slide") && is_on_floor() && velocity.x != 0 && !isSliding:
+    if Input.is_action_just_pressed("ui_slide") && is_on_floor() && velocity.x != 0 && !isSliding:
         $Sprite/AnimationPlayer.play("slide")
         # Stop colliding when sliding
         isSliding = true
