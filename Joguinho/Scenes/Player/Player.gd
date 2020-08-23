@@ -17,6 +17,7 @@ var isFlipped = false
 var isCrouched = false
 var isSliding = false
 var game_over = false
+var emitted = false
 
 signal player_death
 
@@ -28,8 +29,12 @@ func _physics_process(delta):
         handleInput()
         # Incresce or reduce the horizontal velocity based on the input
         velocity.x = baseHVelocity * velocityModulation
-    else:
-        velocity.x = lerp(velocity.x, 0, delta * 4)
+    elif game_over:
+        velocity.x = lerp(velocity.x, 0, delta * 6.0)
+        if (abs(velocity.x) <= 1 && is_on_floor() && !emitted):
+            emit_signal("player_death")
+            emitted = true
+            $Camera2D.zoomOutDeath()
     
     if !is_on_floor():
         velocity.y += delta * GRAVITY
@@ -111,17 +116,18 @@ func shoot(direction):
     worldNode.add_child(bullet)
     
 func takeDamage(direction):
-    game_over = true
-    emit_signal("player_death")
-    if direction == -1:
-        if isFlipped:
-            $Sprite.flip_h = false
-    elif direction == 1:
-        if !isFlipped:
-            $Sprite.flip_h = true
-    velocity.x = WALK_SPEED * direction
-    velocity.y = -JUMP_FORCE / 2
-    Engine.time_scale = 0.2
-    $Sprite/AnimationPlayer.play("death")
+    if (!game_over):
+        game_over = true
+        if direction == -1:
+            if isFlipped:
+                $Sprite.flip_h = false
+        elif direction == 1:
+            if !isFlipped:
+                $Sprite.flip_h = true
+        velocity.x = WALK_SPEED * direction
+        velocity.y = -JUMP_FORCE / 2
+        Engine.time_scale = 0.2
+        $Camera2D.zoomInDeath()
+        $Sprite/AnimationPlayer.play("death")
     
     

@@ -7,8 +7,7 @@ var velocity = Vector2()
 func _ready():
     velocity.y = 0
 
-func _physics_process(delta):
-   
+func _physics_process(delta):  
     # Move the bullet based on its velocity
     position += velocity * delta
 

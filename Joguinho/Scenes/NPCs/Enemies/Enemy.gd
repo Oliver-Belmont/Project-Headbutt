@@ -35,7 +35,6 @@ func _ready():
     
 func stop():
     stop = true
-    
 
 func _process(delta):
     if (!stop):
