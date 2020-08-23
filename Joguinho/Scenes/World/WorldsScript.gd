@@ -14,13 +14,14 @@ func _on_ObjectiveTimer_timeout():
     finish_game_defeat()
 
 func finish_game_defeat():
-    pass
+    print("EH meu bom, deu ruim")
     
 func finish_game_win():
-    pass
+    print("EH meu bom, deu bom demais")
 
 func _on_ObjectiveArea_body_entered(body):
-    final_part_reached()
+    if body.is_in_group("player"):
+        final_part_reached()
 
 func final_part_reached():
     pass

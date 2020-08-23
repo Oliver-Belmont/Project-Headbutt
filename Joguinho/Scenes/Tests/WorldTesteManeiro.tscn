@@ -17,11 +17,11 @@ tile_data = PoolIntArray( 393216, 0, 196608, 393217, 0, 196609, 393218, 0, 19660
 [node name="Mr_President" parent="President" index="0" instance=ExtResource( 4 )]
 position = Vector2( 1095.64, 318.598 )
 
-[node name="ObjectiveArea" parent="." index="3"]
-script = null
-
 [node name="CollisionShape2D" parent="ObjectiveArea" index="0"]
 position = Vector2( 1032.59, 316.627 )
+
+[node name="ObjectiveTimer" parent="." index="4"]
+wait_time = 30.0
 
 [node name="ColorRect" parent="CanvasLayer" index="0"]
 visible = false
