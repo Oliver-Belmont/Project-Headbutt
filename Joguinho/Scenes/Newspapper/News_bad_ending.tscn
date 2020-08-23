@@ -97,7 +97,7 @@ margin_right = -349.0
 margin_bottom = -6.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "10 ways to be even
+text = "Ten ways to be even
 more sad than you
 currently are...(p10)"
 
@@ -108,7 +108,7 @@ margin_right = 553.0
 margin_bottom = -169.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Leaders shot at public speech"
+text = "Leader shot at public speech"
 
 [node name="Button" type="Button" parent="."]
 margin_left = 300.0
