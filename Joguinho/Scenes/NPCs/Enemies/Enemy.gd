@@ -8,6 +8,7 @@ const RUN_SPEED = 200.0
 const JUMP_FORCE = 1000.0
 const GUN_COOLDOWN = 1.0
 
+onready var worldNode = get_tree().get_root().get_node("World")
 
 var horizontalSpeed
 var velocity = Vector2()
@@ -18,14 +19,8 @@ var rightArea
 var health = 1
 var timeToShoot = 0
 var lockedIn = false
-var worldNode
-var playerNode
-var stop = false
 
 func _ready():
-    worldNode = get_tree().get_root().get_node("World")
-    playerNode = worldNode.get_node("Character")
-    playerNode.connect("player_death", self, "stop")
     horizontalSpeed = WALK_SPEED
     $Timer.start()
     velocity.y = 0
@@ -33,26 +28,20 @@ func _ready():
     rightArea = $Right
     leftArea.set_process(false)
     
-func stop():
-    stop = true
-    
-
 func _process(delta):
-    if (!stop):
-        if lockedIn:
-            if timeToShoot <= 0:
-                shoot(direction)
-        if timeToShoot > 0:
-            timeToShoot -= delta
+    if lockedIn:
+        if timeToShoot <= 0:
+            shoot(direction)
+    if timeToShoot > 0:
+        timeToShoot -= delta
 
 func _physics_process(delta):    
-    if (!stop):
-        if !is_on_floor():
-            velocity.y += delta * GRAVITY
-    
-        velocity.x = direction * horizontalSpeed
-        # Move the character
-        move_and_slide(velocity, Vector2(0, -1))
+    if !is_on_floor():
+        velocity.y += delta * GRAVITY
+
+    velocity.x = direction * horizontalSpeed
+    # Move the character
+    move_and_slide(velocity, Vector2(0, -1))
 
 func takeDamage():
     health -= 1
