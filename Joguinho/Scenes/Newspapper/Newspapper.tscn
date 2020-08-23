@@ -97,7 +97,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0.1, 0.1 ), Vector2( 0.15, 0.15 ), Vector2( 0.2, 0.2 ), Vector2( 0.25, 0.25 ), Vector2( 0.3, 0.3 ), Vector2( 0.35, 0.35 ), Vector2( 0.4, 0.4 ), Vector2( 0.45, 0.45 ), Vector2( 0.5, 0.5 ), Vector2( 0.55, 0.55 ), Vector2( 0.6, 0.6 ), Vector2( 0.65, 0.65 ), Vector2( 0.7, 0.7 ), Vector2( 0.75, 0.75 ), Vector2( 1, 1 ) ]
 }
 
-[node name="Newspapper" type="Node2D"]
+[node name="News_good_ending" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -36, 39 )
