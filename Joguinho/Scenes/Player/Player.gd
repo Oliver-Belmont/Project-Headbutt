@@ -16,14 +16,28 @@ var velocityModulation = 1
 var isFlipped = false
 var isCrouched = false
 var isSliding = false
+var game_over = false
+
+signal player_death
 
 func _ready():
     $Camera2D.current = true
 
 func _physics_process(delta):
+    if (!game_over):
+        handleInput()
+        # Incresce or reduce the horizontal velocity based on the input
+        velocity.x = baseHVelocity * velocityModulation
+    else:
+        velocity.x = lerp(velocity.x, 0, delta * 4)
     
     if !is_on_floor():
         velocity.y += delta * GRAVITY
+
+    # Move the character
+    move_and_slide(velocity, Vector2(0, -1))
+    
+func handleInput():
     if(!isSliding):
         # Horizontal input
         if Input.is_action_pressed("ui_left"):
@@ -62,8 +76,7 @@ func _physics_process(delta):
         if Input.is_action_just_released("ui_down"):
             velocityModulation = 1
             isCrouched = false
-            
-        
+                   
     # Shoot input
     if Input.is_action_just_pressed("ui_select"):
         shoot(last_direction)
@@ -85,26 +98,30 @@ func _physics_process(delta):
         self.set_collision_mask(1)
                 
 
-    # Incresce or reduce the horizontal velocity based on the input
-    velocity.x = baseHVelocity * velocityModulation
-
-    # Move the character
-    move_and_slide(velocity, Vector2(0, -1))
-    
-
 func shoot(direction):
     var offset
     # Instance a new bullet
     var bullet = BulletResource.instance()
-   
     # Set bullet direction and starting position 
     bullet.set_direction(direction)
     bullet.transform = self.transform
     offset = Vector2(40*direction, 0)
     bullet.translate(offset)
-    
     # Add to world
     worldNode.add_child(bullet)
     
-func takeDamage():
-    pass
+func takeDamage(direction):
+    game_over = true
+    emit_signal("player_death")
+    if direction == -1:
+        if isFlipped:
+            $Sprite.flip_h = false
+    elif direction == 1:
+        if !isFlipped:
+            $Sprite.flip_h = true
+    velocity.x = WALK_SPEED * direction
+    velocity.y = -JUMP_FORCE / 2
+    Engine.time_scale = 0.2
+    $Sprite/AnimationPlayer.play("death")
+    
+    
