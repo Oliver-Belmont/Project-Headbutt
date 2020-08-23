@@ -23,3 +23,11 @@ func slideZoomIn():
 func resetZoom():
     zoomSpeed = 2.0
     zoomTarget = Vector2(1, 1)
+    
+func zoomOutDeath():
+    zoomSpeed = 0.1
+    zoomTarget = Vector2(2, 2)
+    
+func zoomInDeath():
+    zoomSpeed = 5.0
+    zoomTarget = Vector2(0.3, 0.3)
