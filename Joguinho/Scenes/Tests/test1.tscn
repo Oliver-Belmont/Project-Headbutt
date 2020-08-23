@@ -4,10 +4,9 @@
 [ext_resource path="res://crt_material.tres" type="Material" id=2]
 [ext_resource path="res://Scenes/NPCs/Enemies/EnemiesController.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/NPCs/Enemies/Enemy.tscn" type="PackedScene" id=4]
-[ext_resource path="res://TileMaps/TileMap.tscn" type="PackedScene" id=5]
+[ext_resource path="res://TileMap.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/NPCs/Mr.President/Mr_President.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Player/PlayerCharacter.tscn" type="PackedScene" id=7]
-
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
