@@ -4,9 +4,9 @@ const BulletResource = preload("res://Scenes/NPCs/Enemies/EnemyBullet.tscn")
 
 const GRAVITY = 4000.0
 const WALK_SPEED = 50.0
-const RUN_SPEED = 200.0
+const RUN_SPEED = 150.0
 const JUMP_FORCE = 1000.0
-const GUN_COOLDOWN = 1.0
+const GUN_COOLDOWN = 2.0
 
 
 var horizontalSpeed
@@ -16,17 +16,21 @@ var direction = 1
 var leftArea
 var rightArea
 var health = 1
-var timeToShoot = 0
+var timeToShoot
 var lockedIn = false
 var worldNode
 var playerNode
 var stop = false
+var animating = false
+var mustReload = false
+var aiming = false
 
 func _ready():
     worldNode = get_tree().get_root().get_node("World")
     playerNode = worldNode.get_node("Character")
     playerNode.connect("player_death", self, "stop")
     horizontalSpeed = WALK_SPEED
+    timeToShoot = GUN_COOLDOWN
     $Timer.start()
     velocity.y = 0
     leftArea = $Left
@@ -37,15 +41,20 @@ func stop():
     stop = true
 
 func _process(delta):
+    if direction == 1:
+        $AnimatedSprite.flip_h = false
+    elif direction == -1:
+        $AnimatedSprite.flip_h = true
+        
     if (!stop):
         if lockedIn:
             if timeToShoot <= 0:
                 shoot(direction)
-        if timeToShoot > 0:
+        if timeToShoot > 0 && aiming:
             timeToShoot -= delta
 
 func _physics_process(delta):    
-    if (!stop):
+    if (!stop && !animating):
         if !is_on_floor():
             velocity.y += delta * GRAVITY
     
@@ -72,6 +81,7 @@ func _on_Left_body_entered(body):
         $Timer.stop()
         direction = -1
         lockedIn = true
+        aiming = true
         horizontalSpeed = RUN_SPEED
 
 
@@ -80,6 +90,7 @@ func _on_Right_body_entered(body):
         $Timer.stop()
         direction = 1
         lockedIn = true
+        aiming = true
         horizontalSpeed = RUN_SPEED
 
 func _on_Left_body_exited(body):
@@ -109,3 +120,11 @@ func shoot(direction):
     # Add to world
     worldNode.add_child(bullet)
     timeToShoot = GUN_COOLDOWN
+    
+    $AnimatedSprite.play("shoot")
+    animating = true
+    yield(get_node("AnimatedSprite"), "animation_finished")    
+    $AnimatedSprite.play("reload")
+    yield(get_node("AnimatedSprite"), "animation_finished")    
+    animating = false
+    
