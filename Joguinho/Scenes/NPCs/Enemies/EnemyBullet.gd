@@ -21,5 +21,5 @@ func set_direction(direction):
 func _on_EnemyBullet_body_entered(body):
     if (body.is_in_group("player")):
         if !body.isSliding && !body.isCrouched:
-            body.takeDamage(shot_direction)
+            body.take_damage(shot_direction)
     queue_free()
