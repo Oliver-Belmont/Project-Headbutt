@@ -25,7 +25,7 @@ var mustReload = false
 var aiming = false
 
 func _ready():
-    worldNode = get_tree().get_root().get_node("World")
+    worldNode = get_parent().get_parent()
     horizontalSpeed = WALK_SPEED
     timeToShoot = GUN_COOLDOWN
     $Timer.start()

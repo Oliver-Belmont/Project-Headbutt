@@ -5,7 +5,7 @@
 [ext_resource path="res://TileMap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/NPCs/Mr.President/Mr_President.tscn" type="PackedScene" id=4]
 
-[node name="World" index="0" instance=ExtResource( 1 )]
+[node name="World" instance=ExtResource( 1 )]
 
 [node name="Enemies" parent="." index="0"]
 editor/display_folded = true

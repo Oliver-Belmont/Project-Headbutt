@@ -6,7 +6,7 @@ const GRAVITY = 4000.0
 const WALK_SPEED = 500.0
 const JUMP_FORCE = 1000.0
 
-onready var worldNode = get_tree().get_root().get_node("World")
+onready var worldNode = get_parent()
 
 # 1 = right, -1 = left
 var last_direction = 1
