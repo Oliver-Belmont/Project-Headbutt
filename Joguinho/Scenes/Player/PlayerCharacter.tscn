@@ -300,8 +300,7 @@ anims/run = SubResource( 9 )
 anims/slide = SubResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( -0.21463, 0.643917 )
+position = Vector2( -0.215, 0.644 )
 shape = SubResource( 11 )
 
 [node name="Camera2D" type="Camera2D" parent="."]

@@ -87,13 +87,15 @@ func handle_input():
         shoot(last_direction)
     
     # Slide input
-    if Input.is_action_just_released("ui_slide") && is_on_floor() && velocity.x != 0:
+    if Input.is_action_just_released("ui_slide") && is_on_floor() && velocity.x != 0 && !isSliding:
         $Sprite/AnimationPlayer.play("slide")
         # Stop colliding when sliding
         isSliding = true
         $Camera2D.slide_zoom_in()
         self.set_collision_layer(2)
         self.set_collision_mask(2)
+        $CollisionShape2D.scale.y = 0.5
+        $CollisionShape2D.position.y += 12.5
         # Wait for the animation to finish
         yield(get_node("Sprite/AnimationPlayer"), "animation_finished")
         # Restore its behaviour after the slide
@@ -101,6 +103,9 @@ func handle_input():
         $Camera2D.reset_zoom()
         self.set_collision_layer(1)
         self.set_collision_mask(1)
+        $CollisionShape2D.scale.y = 1.0
+        $CollisionShape2D.position.y -= 12.5
+
                 
 
 func shoot(direction):

@@ -13,10 +13,8 @@ editor/display_folded = true
 [node name="Enemy" parent="Enemies" index="0" instance=ExtResource( 2 )]
 position = Vector2( 374.428, 261.056 )
 
-[node name="Environment" parent="." index="1"]
-editor/display_folded = true
-
 [node name="TileMap" parent="Environment" index="0" instance=ExtResource( 3 )]
+collision_mask = 3
 tile_data = PoolIntArray( 393216, 0, 196608, 393217, 0, 196609, 393218, 0, 196609, 393219, 0, 196609, 393220, 0, 196609, 393221, 0, 196609, 393222, 0, 196609, 393223, 0, 196609, 393224, 0, 196609, 393225, 0, 196609, 393226, 0, 196609, 393227, 0, 196609, 393228, 0, 196609, 393229, 0, 196609, 393230, 0, 196609, 393231, 0, 196609, 393232, 0, 196609, 393233, 0, 196610 )
 
 [node name="CollisionShape2D" parent="ObjectiveArea" index="0"]
