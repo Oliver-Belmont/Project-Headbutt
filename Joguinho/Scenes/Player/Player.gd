@@ -123,15 +123,15 @@ func shoot(direction):
 func take_damage(direction):
     if (!game_over):
         game_over = true
-        if direction == -1:
-            if isFlipped:
-                $Sprite.flip_h = false
-        elif direction == 1:
-            if !isFlipped:
-                $Sprite.flip_h = true
+        if direction == 1:
+            $Sprite.flip_h = true
+            $Sprite/AnimationPlayer.play("death_left")
+        elif direction == -1:
+            $Sprite.flip_h = false
+            $Sprite/AnimationPlayer.play("death")
         velocity.x = WALK_SPEED * direction
         velocity.y = -JUMP_FORCE / 2
         Engine.time_scale = 0.2
         $Camera2D.zoom_in_death()
-        $Sprite/AnimationPlayer.play("death")
+        
     
