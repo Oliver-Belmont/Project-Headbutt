@@ -3,7 +3,7 @@
 [ext_resource path="res://Scenes/World/GenericWorld.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/NPCs/Girl/Girl.tscn" type="PackedScene" id=2]
 [ext_resource path="res://TileMap.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/NPCs/King/King.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/NPCs/Mr.President/Mr_President.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/MovingPlatform.tscn" type="PackedScene" id=5]
 
 [node name="World" index="0" instance=ExtResource( 1 )]
@@ -24,8 +24,11 @@ editor/display_folded = false
 [node name="CollisionShape2D" parent="ObjectiveArea" index="0"]
 position = Vector2( 987.37, 316.627 )
 
-[node name="King" parent="President" index="0" instance=ExtResource( 4 )]
-position = Vector2( -114.304, 342.835 )
+[node name="President" parent="." index="3"]
+position = Vector2( 1420.23, -39.4508 )
+
+[node name="Mr_President" parent="President" index="0" instance=ExtResource( 4 )]
+position = Vector2( -77.8535, 401.98 )
 
 [node name="ObjectiveTimer" parent="." index="4"]
 wait_time = 30.0
@@ -37,9 +40,9 @@ editor/display_folded = true
 visible = false
 
 [node name="Character" parent="." index="6"]
-position = Vector2( 34.6688, 4.52203 )
+position = Vector2( 591.062, 111.992 )
 
 [node name="MovingPlatform" parent="." index="7" instance=ExtResource( 5 )]
-position = Vector2( -111.543, 403.967 )
-finalPos = 300
-duration = 5
+position = Vector2( 1341.04, 396.461 )
+finalPos = 396
+duration = 1

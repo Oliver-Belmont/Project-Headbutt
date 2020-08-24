@@ -15,8 +15,8 @@ func _ready():
     #play_this_level()
     
 func _process(delta):
-    #if Input.is_action_just_released("ui_focus_next"):
-    #    next_level()
+    if Input.is_action_just_released("ui_focus_next"):
+        next_level()
     pass
     
 func start_game():
