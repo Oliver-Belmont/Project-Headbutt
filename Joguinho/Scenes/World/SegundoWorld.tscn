@@ -98,14 +98,12 @@ position = Vector2( 5410.14, 1575.65 )
 [node name="ObjectiveTimer" parent="." index="4"]
 wait_time = 30.0
 
-[node name="ColorRect" parent="CanvasLayer" index="0"]
-visible = false
-
 [node name="Character" parent="." index="6"]
 position = Vector2( -39.4483, -63.3254 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="7"]
 stream = ExtResource( 6 )
+volume_db = -40.0
 autoplay = true
 
 [node name="MovingPlatform" parent="." index="8" instance=ExtResource( 7 )]

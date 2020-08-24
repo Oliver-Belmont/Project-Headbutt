@@ -95,14 +95,13 @@ texture = ExtResource( 2 )
 centered = false
 
 [node name="Label" type="Label" parent="."]
-margin_left = -527.266
-margin_top = -267.943
-margin_right = 565.734
-margin_bottom = -152.943
+margin_left = -536.789
+margin_top = -258.42
+margin_right = 556.211
+margin_bottom = -143.42
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Bulletproof democracy:
-The downfall of dumbrella"
+text = "Officer McJeans Saves the Day"
 
 [node name="Label2" type="Label" parent="."]
 margin_left = -568.932

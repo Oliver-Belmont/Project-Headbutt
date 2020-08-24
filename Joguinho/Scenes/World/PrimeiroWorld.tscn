@@ -9,6 +9,7 @@
 [ext_resource path="res://Scenes/MovingPlatform.tscn" type="PackedScene" id=7]
 
 [node name="World" index="0" instance=ExtResource( 1 )]
+objDuration = 20
 
 [node name="Enemies" parent="." index="0"]
 editor/display_folded = true
@@ -71,22 +72,16 @@ position = Vector2( 4821.02, 2019.4 )
 position = Vector2( 5327.71, 2163.73 )
 
 [node name="ObjectiveTimer" parent="." index="4"]
-wait_time = 30.0
-
-[node name="ColorRect" parent="CanvasLayer" index="0"]
-visible = false
+wait_time = 20.0
 
 [node name="Character" parent="." index="6"]
-position = Vector2( -1146.8, 268.352 )
+position = Vector2( -1129.35, 398.459 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="7"]
 stream = ExtResource( 6 )
+volume_db = -40.0
 autoplay = true
 
 [node name="MovingPlatform" parent="." index="8" instance=ExtResource( 7 )]
 position = Vector2( 5328.42, 2196.17 )
 finalPos = 2093
-
-[node name="FinalCloseCamera" parent="." index="9"]
-position = Vector2( 5594, 2079 )
-zoom = Vector2( 0.7, 0.7 )
