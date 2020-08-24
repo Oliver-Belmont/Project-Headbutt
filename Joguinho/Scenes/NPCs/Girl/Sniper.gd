@@ -13,3 +13,11 @@ func was_hit(body):
         print("Sniper was hit! The president is safe!")
         body.dive_over("sniper")
         
+func shoot_animation():
+    get_tree().paused = true
+    Engine.time_scale = 0.2
+    $Sprite/AnimationPlayer.play("shoot")
+    yield(get_node("Sprite/AnimationPlayer"), "animation_finished")
+    Engine.time_scale = 1.0
+    get_tree().paused = false
+    get_parent().get_parent().finish_game_defeat()
