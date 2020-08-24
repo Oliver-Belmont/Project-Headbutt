@@ -31,3 +31,7 @@ func zoom_out_death():
 func zoom_in_death():
     zoomSpeed = 5.0
     zoomTarget = Vector2(0.3, 0.3)
+    
+func zoom_hero_moment():
+    zoomSpeed = 10
+    zoomTarget = Vector2(0.3, 0.3)

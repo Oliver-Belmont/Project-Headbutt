@@ -58,5 +58,11 @@ func back_to_title():
     clear_newspapers()
     title_screen()
 
+func show_guide():
+    $PauseLayer/Guide.show()
+
+func hide_guide():
+    $PauseLayer/Guide.hide()
+
 func quit_game():
     get_tree().quit()

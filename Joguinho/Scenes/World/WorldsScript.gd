@@ -31,3 +31,9 @@ func _on_ObjectiveArea_body_entered(body):
 func final_part_reached():
     player.hero_moment()
     
+func show_dive_guide():
+    main.get_node("Menu").show_guide()
+    
+func hide_dive_guide():
+    main.get_node("Menu").hide_guide()
+    

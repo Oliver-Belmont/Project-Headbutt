@@ -65,17 +65,20 @@ func hero_moment():
     its_head_time = true
     baseHVelocity = 0
     $Sprite/AnimationPlayer.play("idle")
+    $Camera2D.zoom_hero_moment()
+    worldNode.show_dive_guide()
 
 func player_dive():
     leap_of_faith = true
     GRAVITY = 100
     baseHVelocity = 1000.0
     velocity.y = -10
+    $CollisionShape2D.scale.y = 0.5
     $Sprite/AnimationPlayer.play("rescue_dive")
     Engine.time_scale = 0.1
+    worldNode.hide_dive_guide()
     
 func dive_over(result):
-    print("AQUI")
     leap_of_faith = false
     GRAVITY = 4000.0
     lerp_decay = 60

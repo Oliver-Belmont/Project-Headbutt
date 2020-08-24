@@ -14,6 +14,8 @@ func _ready():
     velocity.y = (finalPos - self.position.y)/duration
 
 func _physics_process(delta):
+    if ((self.position.y - finalPos) <= 1):
+        velocity.y = 0
     move_and_slide(velocity, Vector2(0, -1))
     
 
