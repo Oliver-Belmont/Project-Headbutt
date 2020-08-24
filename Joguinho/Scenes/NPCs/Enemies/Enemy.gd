@@ -3,7 +3,7 @@ extends KinematicBody2D
 const BulletResource = preload("res://Scenes/NPCs/Enemies/EnemyBullet.tscn")
 
 const GRAVITY = 4000.0
-const WALK_SPEED = 50.0
+const WALK_SPEED = 80.0
 const RUN_SPEED = 150.0
 const JUMP_FORCE = 1000.0
 const GUN_COOLDOWN = 2.0

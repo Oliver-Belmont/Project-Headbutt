@@ -6,6 +6,7 @@ var levels = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
     levels.append(preload("res://Scenes/World/PrimeiroWorld.tscn"))
+    levels.append(preload("res://Scenes/World/SegundoWorld.tscn"))
     levels.append(preload("res://Scenes/Tests/WorldTesteManeiro.tscn"))
     levels.append(preload("res://Scenes/Tests/test1.tscn"))
     
@@ -18,7 +19,7 @@ func _process(delta):
     pass
     
 func start_game():
-    level = 0
+    level = 1
     clear_level()
     play_this_level()
 
