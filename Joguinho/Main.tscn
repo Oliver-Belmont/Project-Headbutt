@@ -63,7 +63,8 @@ text = "(Press escape to unpause)
 
 Use arrows to move
 Ctrl to slide
-Spacebar to shoot"
+Spacebar to shoot
+\"R\" to toggle retro mode"
 align = 1
 valign = 1
 
