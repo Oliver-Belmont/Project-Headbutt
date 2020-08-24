@@ -111,3 +111,7 @@ autoplay = true
 [node name="MovingPlatform" parent="." index="8" instance=ExtResource( 7 )]
 position = Vector2( 5411.69, 1635.66 )
 finalPos = 1430
+
+[node name="FinalCloseCamera" parent="." index="9"]
+position = Vector2( 5645, 1416 )
+zoom = Vector2( 0.7, 0.7 )
