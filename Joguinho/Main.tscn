@@ -54,10 +54,17 @@ valign = 1
 [node name="Label2" type="Label" parent="Menu/PauseLayer/Popup/ColorRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 65.0
-margin_bottom = 65.0
+margin_left = 1.75806
+margin_top = 112.468
+margin_right = 1.75806
+margin_bottom = 112.468
 custom_fonts/font = SubResource( 2 )
-text = "(Press escape to unpause)"
+text = "(Press escape to unpause)
+
+Use arrows to move
+Ctrl to slide
+Spacebar to shoot
+\"R\" to toggle retro mode"
 align = 1
 valign = 1
 
