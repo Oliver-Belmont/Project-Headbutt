@@ -7,8 +7,8 @@ var levels = []
 func _ready():
     levels.append(preload("res://Scenes/World/PrimeiroWorld.tscn"))
     levels.append(preload("res://Scenes/World/SegundoWorld.tscn"))
-    levels.append(preload("res://Scenes/Tests/WorldTesteManeiro.tscn"))
-    levels.append(preload("res://Scenes/Tests/test1.tscn"))
+    #levels.append(preload("res://Scenes/Tests/WorldTesteManeiro.tscn"))
+    #levels.append(preload("res://Scenes/Tests/test1.tscn"))
     
     #clear_level()
     #play_this_level()
@@ -19,7 +19,7 @@ func _process(delta):
     pass
     
 func start_game():
-    level = 1
+    level = 0
     clear_level()
     play_this_level()
 

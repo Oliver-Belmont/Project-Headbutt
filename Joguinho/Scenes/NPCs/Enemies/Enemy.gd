@@ -129,3 +129,6 @@ func shoot(direction):
     animating = false
     $AnimatedSprite.play("run")
     
+func _on_Area2D_body_entered(body):
+    if body.is_in_group("player"):
+        body.take_damage((body.last_direction)*-1)
