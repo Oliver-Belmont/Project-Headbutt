@@ -37,7 +37,7 @@ func _physics_process(delta):
         velocity.x = baseHVelocity * velocityModulation
     elif game_over:
         velocity.x = lerp(velocity.x, 0, delta * lerp_decay)
-        if (abs(velocity.x) <= 1 && is_on_floor() && !emitted):
+        if (abs(velocity.x) <= 1 && !emitted):
             if(canEmitt):
                 emit_signal("player_death")
                 emitted = true
@@ -75,6 +75,7 @@ func player_dive():
     velocity.y = -10
     $CollisionShape2D.scale.y = 0.5
     $Sprite/AnimationPlayer.play("rescue_dive")
+    $Camera2D.zoom_dive_moment()
     Engine.time_scale = 0.1
     worldNode.hide_dive_guide()
     
@@ -84,6 +85,7 @@ func dive_over(result):
     lerp_decay = 60
     Engine.time_scale = 1.0
     diveResult = result
+    $Camera2D.zoom_dive_over()
     worldNode.get_node("ObjectiveTimer").stop()
     $LeapTimer.start()
     

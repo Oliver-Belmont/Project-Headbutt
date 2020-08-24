@@ -35,9 +35,11 @@ func clear_level():
 func next_level():
     level += 1
     if level >= levels.size():
-        level = 0
-    clear_level()
-    play_this_level()
+        clear_level()
+        get_parent().get_node("Menu").show_credits()
+    else:
+        clear_level()
+        play_this_level()
     
 func retry_level():
     clear_level()

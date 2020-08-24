@@ -4,6 +4,7 @@ var paused = false
 var title = preload("res://Scenes/Newspapper/Title_Screen/Title_Screen.tscn")
 var win = preload("res://Scenes/Newspapper/Newspapper.tscn")
 var lose = preload("res://Scenes/Newspapper/News_bad_ending.tscn")
+var credits = preload("res://Scenes/Newspapper/Credits.tscn")
 
 onready var levelSelector = get_parent().get_node("LevelSelector")
 
@@ -57,6 +58,11 @@ func back_to_title():
     levelSelector.clear_level()
     clear_newspapers()
     title_screen()
+
+func show_credits():
+    clear_newspapers()
+    var screen = credits.instance()
+    $Newspaper.add_child(screen)
 
 func show_guide():
     $PauseLayer/Guide.show()
