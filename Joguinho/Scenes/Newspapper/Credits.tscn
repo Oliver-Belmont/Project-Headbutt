@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Newspapper/Newspapper_preto_branco_correto.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Newspapper/font/slkscr.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scenes/Newspapper/BackToTitleButton.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 70
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 27
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -35,6 +40,10 @@ margin_left = -572.455
 margin_top = 48.4555
 margin_right = -350.455
 margin_bottom = 164.455
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "font by
+Jason Kottke"
 
 [node name="Label3" type="Label" parent="Sprite"]
 margin_left = -312.0
@@ -46,10 +55,10 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Game by
 Tui
 Oliver
-
 Art by Balmer
 Justin Nichol
-Luiz Melo"
+Luiz Melo
+Sithjester"
 
 [node name="Label4" type="Label" parent="Sprite"]
 margin_left = -566.0
@@ -60,3 +69,9 @@ custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Music by
 Kraftamt"
+
+[node name="BackToTitleButton" parent="." instance=ExtResource( 3 )]
+margin_left = 923.009
+margin_top = 326.234
+margin_right = 1157.01
+margin_bottom = 391.234
