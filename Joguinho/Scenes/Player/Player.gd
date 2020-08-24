@@ -18,6 +18,7 @@ var isCrouched = false
 var isSliding = false
 var game_over = false
 var emitted = false
+var canEmitt = false
 
 signal player_death
 
@@ -32,8 +33,9 @@ func _physics_process(delta):
     elif game_over:
         velocity.x = lerp(velocity.x, 0, delta * 6.0)
         if (abs(velocity.x) <= 1 && is_on_floor() && !emitted):
-            emit_signal("player_death")
-            emitted = true
+            if(canEmitt):
+                emit_signal("player_death")
+                emitted = true
             $Camera2D.zoom_out_death()
             Engine.time_scale = 1.0
     
@@ -134,5 +136,9 @@ func take_damage(direction):
         velocity.y = -JUMP_FORCE / 2
         Engine.time_scale = 0.2
         $Camera2D.zoom_in_death()
+        $DeathTimer.start()
         
     
+
+func _on_DeathTimer_timeout():
+    canEmitt = true

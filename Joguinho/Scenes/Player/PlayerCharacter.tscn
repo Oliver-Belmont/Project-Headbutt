@@ -330,3 +330,8 @@ shape = SubResource( 12 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource( 3 )
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+[connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]

@@ -6,7 +6,7 @@ onready var player = $Character
 onready var main = get_tree().get_root().get_node("Main")
 
 func _ready():
-    pass
+    player.connect("player_death", self, "finish_game_defeat")
 
 func _process(delta):
     pass
