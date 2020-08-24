@@ -13,16 +13,19 @@ func _ready():
 
 func _process(delta):
     if Input.is_action_just_pressed("ui_cancel"):
-        if paused:
-            $PauseLayer/Popup.hide()
-            get_tree().paused = false
-            paused = false
-        else:
-            $PauseLayer/Popup.show()
-            get_tree().paused = true
-            paused = true   
+        pause()
     #if Input.is_action_just_pressed("ui_accept"):
     #    title_screen()
+
+func pause():
+    if paused:
+        $PauseLayer/Popup.hide()
+        get_tree().paused = false
+        paused = false
+    else:
+        $PauseLayer/Popup.show()
+        get_tree().paused = true
+        paused = true
 
 func clear_newspapers():
     for node in $Newspaper.get_children():

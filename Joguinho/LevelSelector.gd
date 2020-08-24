@@ -1,5 +1,7 @@
 extends Node
 
+onready var menu = get_parent().get_node("Menu")
+
 var level = 0
 var levels = []
 
@@ -15,8 +17,8 @@ func _ready():
     #play_this_level()
     
 func _process(delta):
-    if Input.is_action_just_released("ui_focus_next"):
-        next_level()
+    #if Input.is_action_just_released("ui_focus_next"):
+    #    next_level()
     pass
     
 func start_game():
@@ -27,6 +29,7 @@ func start_game():
 func play_this_level():
     add_child(levels[level].instance())
     get_tree().paused = false
+    menu.pause()
 
 func clear_level():
     for node in get_children():
@@ -36,7 +39,7 @@ func next_level():
     level += 1
     if level >= levels.size():
         clear_level()
-        get_parent().get_node("Menu").show_credits()
+        menu.show_credits()
     else:
         clear_level()
         play_this_level()
