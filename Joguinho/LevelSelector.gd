@@ -5,6 +5,8 @@ onready var menu = get_parent().get_node("Menu")
 var level = 0
 var levels = []
 
+onready var retro_toggle = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
     levels.append(preload("res://Scenes/World/PrimeiroWorld.tscn"))

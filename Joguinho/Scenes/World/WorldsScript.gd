@@ -9,11 +9,27 @@ export(int) var objDuration = 30
 
 func _ready():
     player.connect("player_death", self, "finish_game_defeat")
+    toggle_no_change()
     $ObjectiveTimer.wait_time = objDuration
     $ObjectiveTimer.start()
 
+func toggle_no_change():
+    if (!get_parent().retro_toggle):
+        $CanvasLayer/ColorRect.hide()
+    elif (get_parent().retro_toggle):
+        $CanvasLayer/ColorRect.show()
+
+func toggle_retro_screen():
+    if (get_parent().retro_toggle):
+        $CanvasLayer/ColorRect.hide()
+        get_parent().retro_toggle = false
+    elif (!get_parent().retro_toggle):
+        $CanvasLayer/ColorRect.show()
+        get_parent().retro_toggle = true        
+
 func _process(delta):
-    pass
+    if Input.is_action_just_pressed("ui_retro"):
+        toggle_retro_screen()
     
 func _on_ObjectiveTimer_timeout():
     $FinalCloseCamera.set_current()
