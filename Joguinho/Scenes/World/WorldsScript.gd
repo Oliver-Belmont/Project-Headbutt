@@ -5,8 +5,12 @@ onready var timerFase = $ObjectiveTimer
 onready var player = $Character
 onready var main = get_tree().get_root().get_node("Main")
 
+export(int) var objDuration = 30
+
 func _ready():
     player.connect("player_death", self, "finish_game_defeat")
+    $ObjectiveTimer.wait_time = objDuration
+    $ObjectiveTimer.start()
 
 func _process(delta):
     pass

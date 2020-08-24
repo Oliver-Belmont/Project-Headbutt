@@ -27,7 +27,6 @@ shape = SubResource( 1 )
 
 [node name="ObjectiveTimer" type="Timer" parent="."]
 one_shot = true
-autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
