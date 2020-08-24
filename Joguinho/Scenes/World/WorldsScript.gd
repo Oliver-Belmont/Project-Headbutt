@@ -25,7 +25,8 @@ func finish_game_win():
     main.main_game_win()
 
 func _on_ObjectiveArea_body_entered(body):
-    final_part_reached()
+    if(body.is_in_group("player")):
+        final_part_reached()
 
 func final_part_reached():
     player.hero_moment()

@@ -20,7 +20,7 @@ func _process(delta):
     pass
     
 func start_game():
-    level = 2
+    level = 0
     clear_level()
     play_this_level()
 
