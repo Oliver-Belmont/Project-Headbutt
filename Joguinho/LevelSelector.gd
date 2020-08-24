@@ -5,8 +5,8 @@ var levels = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    levels.append(preload("res://Scenes/Tests/WorldTesteManeiro.tscn"))
     levels.append(preload("res://Scenes/World/PrimeiroWorld.tscn"))
+    levels.append(preload("res://Scenes/Tests/WorldTesteManeiro.tscn"))
     levels.append(preload("res://Scenes/Tests/test1.tscn"))
     
     #clear_level()

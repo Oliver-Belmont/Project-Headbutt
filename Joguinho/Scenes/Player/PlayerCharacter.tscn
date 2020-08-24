@@ -94,7 +94,7 @@ tracks/0/keys = {
 "values": [ 9 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=13]
 resource_name = "death_left"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rotation_degrees")
@@ -108,8 +108,20 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 0.0, 80.0 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 8 ]
+}
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=14]
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -136,7 +148,7 @@ tracks/1/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=15]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -163,7 +175,7 @@ tracks/1/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=16]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -190,7 +202,7 @@ tracks/1/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=17]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -229,7 +241,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 50, 0 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=18]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -257,7 +269,7 @@ tracks/1/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=19]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -297,20 +309,20 @@ scale = Vector2( 1.1, 1.1 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 8
-frame = 8
+frame = 9
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 anims/crouch = SubResource( 1 )
 anims/crouching_melee_strike = SubResource( 2 )
 anims/death = SubResource( 3 )
 anims/death_crouching = SubResource( 4 )
-anims/death_left = SubResource( 5 )
-anims/idle = SubResource( 6 )
-anims/jump = SubResource( 7 )
-anims/melee_strike = SubResource( 8 )
-anims/rescue_dive = SubResource( 9 )
-anims/run = SubResource( 10 )
-anims/slide = SubResource( 11 )
+anims/death_left = SubResource( 13 )
+anims/idle = SubResource( 14 )
+anims/jump = SubResource( 15 )
+anims/melee_strike = SubResource( 16 )
+anims/rescue_dive = SubResource( 17 )
+anims/run = SubResource( 18 )
+anims/slide = SubResource( 19 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.215, 0.644 )
