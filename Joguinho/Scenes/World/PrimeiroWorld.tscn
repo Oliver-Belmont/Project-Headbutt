@@ -64,11 +64,11 @@ tile_data = PoolIntArray( -1310653, 0, 5, -1245117, 0, 65541, -1179581, 0, 65541
 [node name="ObjectiveArea" parent="." index="2"]
 visible = false
 
-[node name="ObjectiveTimer" parent="." index="4"]
-wait_time = 30.0
-
 [node name="Mr_President" parent="President" index="0" instance=ExtResource( 5 )]
 position = Vector2( 5323.3, 2054.94 )
+
+[node name="ObjectiveTimer" parent="." index="4"]
+wait_time = 30.0
 
 [node name="ColorRect" parent="CanvasLayer" index="0"]
 visible = false

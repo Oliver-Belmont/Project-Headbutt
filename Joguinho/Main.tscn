@@ -25,7 +25,6 @@ script = ExtResource( 2 )
 layer = 4
 
 [node name="PauseLayer" type="CanvasLayer" parent="Menu"]
-editor/display_folded = true
 layer = 5
 
 [node name="Popup" type="Popup" parent="Menu/PauseLayer"]

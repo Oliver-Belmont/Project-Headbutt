@@ -37,6 +37,8 @@ func _ready():
     
 func stop():
     stop = true
+    $Timer.stop()
+    $AnimatedSprite.stop()
 
 func _process(delta):
     if direction == 1:

@@ -35,6 +35,7 @@ func _physics_process(delta):
             emit_signal("player_death")
             emitted = true
             $Camera2D.zoom_out_death()
+            Engine.time_scale = 1.0
     
     if !is_on_floor():
         velocity.y += delta * GRAVITY
