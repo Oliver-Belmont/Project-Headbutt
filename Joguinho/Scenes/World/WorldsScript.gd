@@ -28,4 +28,5 @@ func _on_ObjectiveArea_body_entered(body):
     final_part_reached()
 
 func final_part_reached():
-    pass
+    player.hero_moment()
+    

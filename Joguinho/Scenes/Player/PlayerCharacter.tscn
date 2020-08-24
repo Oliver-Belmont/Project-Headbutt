@@ -309,7 +309,7 @@ scale = Vector2( 1.1, 1.1 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 8
-frame = 9
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 anims/crouch = SubResource( 1 )
@@ -334,4 +334,9 @@ script = ExtResource( 3 )
 [node name="DeathTimer" type="Timer" parent="."]
 wait_time = 4.0
 one_shot = true
+
+[node name="LeapTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
 [connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]
+[connection signal="timeout" from="LeapTimer" to="." method="_on_LeapTimer_timeout"]
