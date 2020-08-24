@@ -16,7 +16,8 @@ func _process(delta):
     pass
     
 func _on_ObjectiveTimer_timeout():
-    finish_game_defeat()
+    $FinalCloseCamera.set_current()
+    $Enemies/Girl.shoot_animation()
 
 func finish_game_defeat():
     main.main_game_defeat()

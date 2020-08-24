@@ -84,6 +84,7 @@ func dive_over(result):
     lerp_decay = 60
     Engine.time_scale = 1.0
     diveResult = result
+    worldNode.get_node("ObjectiveTimer").stop()
     $LeapTimer.start()
     
   

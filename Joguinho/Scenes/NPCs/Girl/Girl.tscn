@@ -102,6 +102,7 @@ tracks/0/keys = {
 extents = Vector2( 30, 30 )
 
 [node name="Girl" type="RigidBody2D"]
+pause_mode = 2
 contacts_reported = 1
 contact_monitor = true
 script = ExtResource( 1 )
