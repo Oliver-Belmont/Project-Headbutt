@@ -54,7 +54,7 @@ margin_bottom = 3.0
 size = 40
 font_data = ExtResource( 3 )
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=13]
 resource_name = "spinning_entrance"
 length = 2.0
 tracks/0/type = "value"
@@ -86,6 +86,7 @@ tracks/1/keys = {
 font_data = ExtResource( 3 )
 
 [node name="News_bad_ending" type="Node2D"]
+position = Vector2( 653, 366 )
 rotation = 6.28319
 script = ExtResource( 1 )
 
@@ -137,7 +138,7 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Retry"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/spinning_entrance = SubResource( 11 )
+anims/spinning_entrance = SubResource( 13 )
 
 [node name="Label3" type="Label" parent="."]
 margin_left = -566.0

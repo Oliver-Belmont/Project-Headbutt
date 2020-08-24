@@ -99,6 +99,7 @@ tracks/1/keys = {
 }
 
 [node name="News_good_ending" type="Node2D"]
+position = Vector2( 653, 366 )
 rotation = 6.28319
 script = ExtResource( 1 )
 
